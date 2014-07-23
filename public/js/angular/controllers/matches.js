@@ -12,21 +12,14 @@ helloExpress.controller('MatchesCtrl', function($scope, $location, MatchService,
       console.log(data);
       $scope.events = data;
     });
+    ResourceService.getAll(function(data, status) {
+      if (status != 200)
+        return console.log('Something went wrong status code is' + status);
+      console.log(data);
+      $scope.events = data;
+    });
   }
   $scope.getAll();
 
-  $scope.test = function() {
-    ResourceService.getMatchCategories()
-    .success(function(data, status) {
-      console.log(data);
-      $scope.categories = data;
-      alert("avnesh");
-    })
-    .error(function(err, status) {
-      console.log("error avnesh");
-      alert("error");
-    })
-  }
-  $scope.test();
 
 })

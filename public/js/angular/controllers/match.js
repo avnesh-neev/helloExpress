@@ -23,12 +23,12 @@ helloExpress.controller('MatchCtrl', function($scope, MatchService, EmailCheckSe
   $scope.getMatchCategories = function() {
     ResourceService.getMatchCategories()
     .success(function(data, status) {
-      console.log(data);
-      $scope.categories = data;
-      alert("avnesh");
+      console.log(data['categories']);
+      $scope.categories = data['categories'];
+      //$scope.match = {category : $scope.categories[0]};
     })
     .error(function(err, status) {
-      console.log("error avnesh");
+      console.log(err);
       alert("error");
     })
   }

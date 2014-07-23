@@ -1,5 +1,10 @@
-helloExpress.service('resourceService',['$http', function($http) {
+helloExpress.service('ResourceService',['$http', function($http) {
   this.getMatchCategories = function(){
-    return $http.get('matchesCategory.json');
+    return $http.get('../../../matchesCategory.json').success(function(data) {
+      console.log(data);
+      $scope.categories = data;
+    }).error(function(){
+
+    })
   }
 }]);
